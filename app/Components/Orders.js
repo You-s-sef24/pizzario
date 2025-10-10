@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 export default function Orders() {
     const { isLoggedIn, loggedInUser } = useContext(UsersContext);
     const router = useRouter();
-    const orders = loggedInUser.ordersHistory;
+    const orders = loggedInUser?.ordersHistory || [];
 
     useEffect(() => {
         if (!isLoggedIn) {
